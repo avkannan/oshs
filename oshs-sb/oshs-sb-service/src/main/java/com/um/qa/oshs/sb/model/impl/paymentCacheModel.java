@@ -64,7 +64,7 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -82,8 +82,6 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
-		sb.append(", status=");
-		sb.append(status);
 		sb.append(", productID=");
 		sb.append(productID);
 		sb.append(", quantity=");
@@ -92,6 +90,12 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		sb.append(total);
 		sb.append(", price=");
 		sb.append(price);
+		sb.append(", discount=");
+		sb.append(discount);
+		sb.append(", voucherno=");
+		sb.append(voucherno);
+		sb.append(", usedvouchers=");
+		sb.append(usedvouchers);
 		sb.append("}");
 
 		return sb.toString();
@@ -134,17 +138,13 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 			paymentImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		if (status == null) {
-			paymentImpl.setStatus("");
-		}
-		else {
-			paymentImpl.setStatus(status);
-		}
-
 		paymentImpl.setProductID(productID);
 		paymentImpl.setQuantity(quantity);
 		paymentImpl.setTotal(total);
 		paymentImpl.setPrice(price);
+		paymentImpl.setDiscount(discount);
+		paymentImpl.setVoucherno(voucherno);
+		paymentImpl.setUsedvouchers(usedvouchers);
 
 		paymentImpl.resetOriginalValues();
 
@@ -165,7 +165,6 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
-		status = objectInput.readUTF();
 
 		productID = objectInput.readLong();
 
@@ -174,6 +173,12 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		total = objectInput.readFloat();
 
 		price = objectInput.readLong();
+
+		discount = objectInput.readLong();
+
+		voucherno = objectInput.readLong();
+
+		usedvouchers = objectInput.readLong();
 	}
 
 	@Override
@@ -203,13 +208,6 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
-		if (status == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(status);
-		}
-
 		objectOutput.writeLong(productID);
 
 		objectOutput.writeLong(quantity);
@@ -217,6 +215,12 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		objectOutput.writeFloat(total);
 
 		objectOutput.writeLong(price);
+
+		objectOutput.writeLong(discount);
+
+		objectOutput.writeLong(voucherno);
+
+		objectOutput.writeLong(usedvouchers);
 	}
 
 	public String uuid;
@@ -227,10 +231,12 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
-	public String status;
 	public long productID;
 	public long quantity;
 	public float total;
 	public long price;
+	public long discount;
+	public long voucherno;
+	public long usedvouchers;
 
 }

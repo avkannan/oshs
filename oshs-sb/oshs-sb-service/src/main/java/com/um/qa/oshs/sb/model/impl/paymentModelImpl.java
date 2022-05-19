@@ -80,9 +80,10 @@ public class paymentModelImpl
 		{"groupId", Types.BIGINT}, {"companyId", Types.BIGINT},
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
-		{"status", Types.VARCHAR}, {"productID", Types.BIGINT},
-		{"quantity", Types.BIGINT}, {"total", Types.FLOAT},
-		{"price", Types.BIGINT}
+		{"productID", Types.BIGINT}, {"quantity", Types.BIGINT},
+		{"total", Types.FLOAT}, {"price", Types.BIGINT},
+		{"discount", Types.BIGINT}, {"voucherno", Types.BIGINT},
+		{"usedvouchers", Types.BIGINT}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -97,15 +98,17 @@ public class paymentModelImpl
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("status", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("productID", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("quantity", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("total", Types.FLOAT);
 		TABLE_COLUMNS_MAP.put("price", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("discount", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("voucherno", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("usedvouchers", Types.BIGINT);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table oshs_payment (uuid_ VARCHAR(75) null,orderID LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status VARCHAR(75) null,productID LONG,quantity LONG,total DOUBLE,price LONG)";
+		"create table oshs_payment (uuid_ VARCHAR(75) null,orderID LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,productID LONG,quantity LONG,total DOUBLE,price LONG,discount LONG,voucherno LONG,usedvouchers LONG)";
 
 	public static final String TABLE_SQL_DROP = "drop table oshs_payment";
 
@@ -158,11 +161,13 @@ public class paymentModelImpl
 		model.setUserName(soapModel.getUserName());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
-		model.setStatus(soapModel.getStatus());
 		model.setProductID(soapModel.getProductID());
 		model.setQuantity(soapModel.getQuantity());
 		model.setTotal(soapModel.getTotal());
 		model.setPrice(soapModel.getPrice());
+		model.setDiscount(soapModel.getDiscount());
+		model.setVoucherno(soapModel.getVoucherno());
+		model.setUsedvouchers(soapModel.getUsedvouchers());
 
 		return model;
 	}
@@ -310,9 +315,6 @@ public class paymentModelImpl
 		attributeSetterBiConsumers.put(
 			"modifiedDate",
 			(BiConsumer<payment, Date>)payment::setModifiedDate);
-		attributeGetterFunctions.put("status", payment::getStatus);
-		attributeSetterBiConsumers.put(
-			"status", (BiConsumer<payment, String>)payment::setStatus);
 		attributeGetterFunctions.put("productID", payment::getProductID);
 		attributeSetterBiConsumers.put(
 			"productID", (BiConsumer<payment, Long>)payment::setProductID);
@@ -325,6 +327,16 @@ public class paymentModelImpl
 		attributeGetterFunctions.put("price", payment::getPrice);
 		attributeSetterBiConsumers.put(
 			"price", (BiConsumer<payment, Long>)payment::setPrice);
+		attributeGetterFunctions.put("discount", payment::getDiscount);
+		attributeSetterBiConsumers.put(
+			"discount", (BiConsumer<payment, Long>)payment::setDiscount);
+		attributeGetterFunctions.put("voucherno", payment::getVoucherno);
+		attributeSetterBiConsumers.put(
+			"voucherno", (BiConsumer<payment, Long>)payment::setVoucherno);
+		attributeGetterFunctions.put("usedvouchers", payment::getUsedvouchers);
+		attributeSetterBiConsumers.put(
+			"usedvouchers",
+			(BiConsumer<payment, Long>)payment::setUsedvouchers);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -490,22 +502,6 @@ public class paymentModelImpl
 
 	@JSON
 	@Override
-	public String getStatus() {
-		if (_status == null) {
-			return "";
-		}
-		else {
-			return _status;
-		}
-	}
-
-	@Override
-	public void setStatus(String status) {
-		_status = status;
-	}
-
-	@JSON
-	@Override
 	public long getProductID() {
 		return _productID;
 	}
@@ -546,6 +542,39 @@ public class paymentModelImpl
 	@Override
 	public void setPrice(long price) {
 		_price = price;
+	}
+
+	@JSON
+	@Override
+	public long getDiscount() {
+		return _discount;
+	}
+
+	@Override
+	public void setDiscount(long discount) {
+		_discount = discount;
+	}
+
+	@JSON
+	@Override
+	public long getVoucherno() {
+		return _voucherno;
+	}
+
+	@Override
+	public void setVoucherno(long voucherno) {
+		_voucherno = voucherno;
+	}
+
+	@JSON
+	@Override
+	public long getUsedvouchers() {
+		return _usedvouchers;
+	}
+
+	@Override
+	public void setUsedvouchers(long usedvouchers) {
+		_usedvouchers = usedvouchers;
 	}
 
 	@Override
@@ -594,11 +623,13 @@ public class paymentModelImpl
 		paymentImpl.setUserName(getUserName());
 		paymentImpl.setCreateDate(getCreateDate());
 		paymentImpl.setModifiedDate(getModifiedDate());
-		paymentImpl.setStatus(getStatus());
 		paymentImpl.setProductID(getProductID());
 		paymentImpl.setQuantity(getQuantity());
 		paymentImpl.setTotal(getTotal());
 		paymentImpl.setPrice(getPrice());
+		paymentImpl.setDiscount(getDiscount());
+		paymentImpl.setVoucherno(getVoucherno());
+		paymentImpl.setUsedvouchers(getUsedvouchers());
 
 		paymentImpl.resetOriginalValues();
 
@@ -720,14 +751,6 @@ public class paymentModelImpl
 			paymentCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
-		paymentCacheModel.status = getStatus();
-
-		String status = paymentCacheModel.status;
-
-		if ((status != null) && (status.length() == 0)) {
-			paymentCacheModel.status = null;
-		}
-
 		paymentCacheModel.productID = getProductID();
 
 		paymentCacheModel.quantity = getQuantity();
@@ -735,6 +758,12 @@ public class paymentModelImpl
 		paymentCacheModel.total = getTotal();
 
 		paymentCacheModel.price = getPrice();
+
+		paymentCacheModel.discount = getDiscount();
+
+		paymentCacheModel.voucherno = getVoucherno();
+
+		paymentCacheModel.usedvouchers = getUsedvouchers();
 
 		return paymentCacheModel;
 	}
@@ -824,11 +853,13 @@ public class paymentModelImpl
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
-	private String _status;
 	private long _productID;
 	private long _quantity;
 	private float _total;
 	private long _price;
+	private long _discount;
+	private long _voucherno;
+	private long _usedvouchers;
 	private long _columnBitmask;
 	private payment _escapedModel;
 
