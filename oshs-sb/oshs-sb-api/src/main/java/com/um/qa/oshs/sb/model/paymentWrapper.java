@@ -54,11 +54,13 @@ public class paymentWrapper
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
-		attributes.put("status", getStatus());
 		attributes.put("productID", getProductID());
 		attributes.put("quantity", getQuantity());
 		attributes.put("total", getTotal());
 		attributes.put("price", getPrice());
+		attributes.put("discount", getDiscount());
+		attributes.put("voucherno", getVoucherno());
+		attributes.put("usedvouchers", getUsedvouchers());
 
 		return attributes;
 	}
@@ -113,12 +115,6 @@ public class paymentWrapper
 			setModifiedDate(modifiedDate);
 		}
 
-		String status = (String)attributes.get("status");
-
-		if (status != null) {
-			setStatus(status);
-		}
-
 		Long productID = (Long)attributes.get("productID");
 
 		if (productID != null) {
@@ -142,6 +138,24 @@ public class paymentWrapper
 		if (price != null) {
 			setPrice(price);
 		}
+
+		Long discount = (Long)attributes.get("discount");
+
+		if (discount != null) {
+			setDiscount(discount);
+		}
+
+		Long voucherno = (Long)attributes.get("voucherno");
+
+		if (voucherno != null) {
+			setVoucherno(voucherno);
+		}
+
+		Long usedvouchers = (Long)attributes.get("usedvouchers");
+
+		if (usedvouchers != null) {
+			setUsedvouchers(usedvouchers);
+		}
 	}
 
 	/**
@@ -162,6 +176,16 @@ public class paymentWrapper
 	@Override
 	public Date getCreateDate() {
 		return model.getCreateDate();
+	}
+
+	/**
+	 * Returns the discount of this payment.
+	 *
+	 * @return the discount of this payment
+	 */
+	@Override
+	public long getDiscount() {
+		return model.getDiscount();
 	}
 
 	/**
@@ -235,16 +259,6 @@ public class paymentWrapper
 	}
 
 	/**
-	 * Returns the status of this payment.
-	 *
-	 * @return the status of this payment
-	 */
-	@Override
-	public String getStatus() {
-		return model.getStatus();
-	}
-
-	/**
 	 * Returns the total of this payment.
 	 *
 	 * @return the total of this payment
@@ -252,6 +266,16 @@ public class paymentWrapper
 	@Override
 	public float getTotal() {
 		return model.getTotal();
+	}
+
+	/**
+	 * Returns the usedvouchers of this payment.
+	 *
+	 * @return the usedvouchers of this payment
+	 */
+	@Override
+	public long getUsedvouchers() {
+		return model.getUsedvouchers();
 	}
 
 	/**
@@ -294,6 +318,16 @@ public class paymentWrapper
 		return model.getUuid();
 	}
 
+	/**
+	 * Returns the voucherno of this payment.
+	 *
+	 * @return the voucherno of this payment
+	 */
+	@Override
+	public long getVoucherno() {
+		return model.getVoucherno();
+	}
+
 	@Override
 	public void persist() {
 		model.persist();
@@ -317,6 +351,16 @@ public class paymentWrapper
 	@Override
 	public void setCreateDate(Date createDate) {
 		model.setCreateDate(createDate);
+	}
+
+	/**
+	 * Sets the discount of this payment.
+	 *
+	 * @param discount the discount of this payment
+	 */
+	@Override
+	public void setDiscount(long discount) {
+		model.setDiscount(discount);
 	}
 
 	/**
@@ -390,16 +434,6 @@ public class paymentWrapper
 	}
 
 	/**
-	 * Sets the status of this payment.
-	 *
-	 * @param status the status of this payment
-	 */
-	@Override
-	public void setStatus(String status) {
-		model.setStatus(status);
-	}
-
-	/**
 	 * Sets the total of this payment.
 	 *
 	 * @param total the total of this payment
@@ -407,6 +441,16 @@ public class paymentWrapper
 	@Override
 	public void setTotal(float total) {
 		model.setTotal(total);
+	}
+
+	/**
+	 * Sets the usedvouchers of this payment.
+	 *
+	 * @param usedvouchers the usedvouchers of this payment
+	 */
+	@Override
+	public void setUsedvouchers(long usedvouchers) {
+		model.setUsedvouchers(usedvouchers);
 	}
 
 	/**
@@ -447,6 +491,16 @@ public class paymentWrapper
 	@Override
 	public void setUuid(String uuid) {
 		model.setUuid(uuid);
+	}
+
+	/**
+	 * Sets the voucherno of this payment.
+	 *
+	 * @param voucherno the voucherno of this payment
+	 */
+	@Override
+	public void setVoucherno(long voucherno) {
+		model.setVoucherno(voucherno);
 	}
 
 	@Override
