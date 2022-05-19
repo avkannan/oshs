@@ -29,6 +29,7 @@ import com.um.qa.oshs.sb.service.orderService;
 import com.um.qa.oshs.sb.service.persistence.cartPersistence;
 import com.um.qa.oshs.sb.service.persistence.customerPersistence;
 import com.um.qa.oshs.sb.service.persistence.orderPersistence;
+import com.um.qa.oshs.sb.service.persistence.paymentPersistence;
 import com.um.qa.oshs.sb.service.persistence.productPersistence;
 import com.um.qa.oshs.sb.service.persistence.staffPersistence;
 
@@ -123,6 +124,9 @@ public abstract class orderServiceBaseImpl
 
 	@Reference
 	protected orderPersistence orderPersistence;
+
+	@Reference
+	protected paymentPersistence paymentPersistence;
 
 	@Reference
 	protected productPersistence productPersistence;
