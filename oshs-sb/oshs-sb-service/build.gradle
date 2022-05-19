@@ -1,0 +1,11 @@
+dependencies {
+		compileOnly 'com.liferay.portal:release.dxp.api:7.2.10.1'
+
+	compileOnly project(":modules:oshs-sb:oshs-sb-api")
+}
+
+buildService {
+	apiDir = "../oshs-sb-api/src/main/java"
+}
+
+group = "com.um.qa.oshs.sb"

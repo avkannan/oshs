@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.um.qa.oshs.sb.model.cart">
+		<field name="uuid" type="String" />
+		<field name="cartID" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="cartItemsCount" type="long" />
+		<field name="productID" type="long" />
+		<field name="quantity" type="long" />
+		<field name="total" type="float" />
+		<field name="customerID" type="long" />
+	</model>
+	<model name="com.um.qa.oshs.sb.model.customer">
+		<field name="uuid" type="String" />
+		<field name="customerID" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="firstName" type="String" />
+		<field name="middleName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="displayName" type="String" />
+		<field name="salutation" type="String" />
+		<field name="address1" type="String" />
+		<field name="address2" type="String" />
+		<field name="address3" type="long" />
+		<field name="city" type="long" />
+		<field name="country" type="long" />
+		<field name="state" type="long" />
+		<field name="zip" type="long" />
+		<field name="phone" type="long" />
+	</model>
+	<model name="com.um.qa.oshs.sb.model.product">
+		<field name="uuid" type="String" />
+		<field name="productID" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="productName" type="long" />
+		<field name="images" type="String" />
+		<field name="description" type="long" />
+		<field name="quantity" type="float" />
+	</model>
+	<model name="com.um.qa.oshs.sb.model.staff">
+		<field name="uuid" type="String" />
+		<field name="staffID" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="firstName" type="String" />
+		<field name="middleName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="displayName" type="String" />
+		<field name="salutation" type="String" />
+		<field name="staffType" type="String" />
+		<field name="designation" type="String" />
+		<field name="qualifcation" type="String" />
+		<field name="experience" type="long" />
+	</model>
+</model-hints>

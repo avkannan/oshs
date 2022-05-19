@@ -1,0 +1,10 @@
+Bundle-Name: oshs-sb-api
+Bundle-SymbolicName: com.um.qa.oshs.sb.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.um.qa.oshs.sb.exception,\
+	com.um.qa.oshs.sb.model,\
+	com.um.qa.oshs.sb.service,\
+	com.um.qa.oshs.sb.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../oshs-sb-service/service.xml

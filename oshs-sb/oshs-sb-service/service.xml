@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_2_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.um.qa.oshs.sb">
+	<namespace>oshs</namespace>
+	<entity local-service="true" name="customer"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="customerID" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="firstName" type="String" />
+		<column name="middleName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="displayName" type="String" />
+		<column name="salutation" type="String" />
+		<column name="address1" type="String" />
+		<column name="address2" type="String" />
+		<column name="address3" type="long" />
+		<column name="city" type="long" />
+		<column name="country" type="long" />
+		<column name="state" type="long" />
+		<column name="zip" type="long" />
+		<column name="phone" type="long" />
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="displayName" />
+		</order>
+	</entity>
+	<entity local-service="true" name="staff" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+		<column name="staffID" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="firstName" type="String" />
+		<column name="middleName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="displayName" type="String" />
+		<column name="salutation" type="String" />
+		<column name="staffType" type="String" />
+		<column name="designation" type="String" />
+		<column name="qualifcation" type="String" />
+		<column name="experience" type="long" />
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="displayName" />
+		</order>
+	</entity>
+	<entity local-service="true" name="product"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="productID" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="productName" type="long" />
+		<column name="images" type="String" />
+		<column name="description" type="long" />
+		<column name="quantity" type="float" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="productName" />
+		</order>
+	</entity>
+	<entity local-service="true" name="cart"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="cartID" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="cartItemsCount" type="long" />
+		<column name="productID" type="long" />
+		<column name="quantity" type="long" />
+		<column name="total" type="float" />
+		<column name="customerID" type="long" />
+
+	</entity>
+</service-builder>
