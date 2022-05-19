@@ -301,4 +301,18 @@ public interface paymentModel
 	 */
 	public void setUsedvouchers(long usedvouchers);
 
+	/**
+	 * Returns the usedvouchers1 of this payment.
+	 *
+	 * @return the usedvouchers1 of this payment
+	 */
+	public long getUsedvouchers1();
+
+	/**
+	 * Sets the usedvouchers1 of this payment.
+	 *
+	 * @param usedvouchers1 the usedvouchers1 of this payment
+	 */
+	public void setUsedvouchers1(long usedvouchers1);
+
 }

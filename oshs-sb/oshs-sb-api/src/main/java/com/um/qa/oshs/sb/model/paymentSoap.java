@@ -49,6 +49,7 @@ public class paymentSoap implements Serializable {
 		soapModel.setDiscount(model.getDiscount());
 		soapModel.setVoucherno(model.getVoucherno());
 		soapModel.setUsedvouchers(model.getUsedvouchers());
+		soapModel.setUsedvouchers1(model.getUsedvouchers1());
 
 		return soapModel;
 	}
@@ -222,6 +223,14 @@ public class paymentSoap implements Serializable {
 		_usedvouchers = usedvouchers;
 	}
 
+	public long getUsedvouchers1() {
+		return _usedvouchers1;
+	}
+
+	public void setUsedvouchers1(long usedvouchers1) {
+		_usedvouchers1 = usedvouchers1;
+	}
+
 	private String _uuid;
 	private long _orderID;
 	private long _groupId;
@@ -237,5 +246,6 @@ public class paymentSoap implements Serializable {
 	private long _discount;
 	private long _voucherno;
 	private long _usedvouchers;
+	private long _usedvouchers1;
 
 }

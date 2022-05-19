@@ -27,7 +27,6 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.impl.BaseModelImpl;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
-import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
@@ -83,7 +82,7 @@ public class paymentModelImpl
 		{"productID", Types.BIGINT}, {"quantity", Types.BIGINT},
 		{"total", Types.FLOAT}, {"price", Types.BIGINT},
 		{"discount", Types.BIGINT}, {"voucherno", Types.BIGINT},
-		{"usedvouchers", Types.BIGINT}
+		{"usedvouchers", Types.BIGINT}, {"usedvouchers1", Types.BIGINT}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -105,18 +104,18 @@ public class paymentModelImpl
 		TABLE_COLUMNS_MAP.put("discount", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("voucherno", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("usedvouchers", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("usedvouchers1", Types.BIGINT);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table oshs_payment (uuid_ VARCHAR(75) null,orderID LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,productID LONG,quantity LONG,total DOUBLE,price LONG,discount LONG,voucherno LONG,usedvouchers LONG)";
+		"create table oshs_payment (uuid_ VARCHAR(75) null,orderID LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,productID LONG,quantity LONG,total DOUBLE,price LONG,discount LONG,voucherno LONG,usedvouchers LONG,usedvouchers1 LONG)";
 
 	public static final String TABLE_SQL_DROP = "drop table oshs_payment";
 
-	public static final String ORDER_BY_JPQL =
-		" ORDER BY payment.createDate ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY payment.orderID ASC";
 
 	public static final String ORDER_BY_SQL =
-		" ORDER BY oshs_payment.createDate ASC";
+		" ORDER BY oshs_payment.orderID ASC";
 
 	public static final String DATA_SOURCE = "liferayDataSource";
 
@@ -130,7 +129,7 @@ public class paymentModelImpl
 
 	public static final long UUID_COLUMN_BITMASK = 4L;
 
-	public static final long CREATEDATE_COLUMN_BITMASK = 8L;
+	public static final long ORDERID_COLUMN_BITMASK = 8L;
 
 	public static void setEntityCacheEnabled(boolean entityCacheEnabled) {
 		_entityCacheEnabled = entityCacheEnabled;
@@ -168,6 +167,7 @@ public class paymentModelImpl
 		model.setDiscount(soapModel.getDiscount());
 		model.setVoucherno(soapModel.getVoucherno());
 		model.setUsedvouchers(soapModel.getUsedvouchers());
+		model.setUsedvouchers1(soapModel.getUsedvouchers1());
 
 		return model;
 	}
@@ -337,6 +337,11 @@ public class paymentModelImpl
 		attributeSetterBiConsumers.put(
 			"usedvouchers",
 			(BiConsumer<payment, Long>)payment::setUsedvouchers);
+		attributeGetterFunctions.put(
+			"usedvouchers1", payment::getUsedvouchers1);
+		attributeSetterBiConsumers.put(
+			"usedvouchers1",
+			(BiConsumer<payment, Long>)payment::setUsedvouchers1);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -478,8 +483,6 @@ public class paymentModelImpl
 
 	@Override
 	public void setCreateDate(Date createDate) {
-		_columnBitmask = -1L;
-
 		_createDate = createDate;
 	}
 
@@ -577,6 +580,17 @@ public class paymentModelImpl
 		_usedvouchers = usedvouchers;
 	}
 
+	@JSON
+	@Override
+	public long getUsedvouchers1() {
+		return _usedvouchers1;
+	}
+
+	@Override
+	public void setUsedvouchers1(long usedvouchers1) {
+		_usedvouchers1 = usedvouchers1;
+	}
+
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(
@@ -630,6 +644,7 @@ public class paymentModelImpl
 		paymentImpl.setDiscount(getDiscount());
 		paymentImpl.setVoucherno(getVoucherno());
 		paymentImpl.setUsedvouchers(getUsedvouchers());
+		paymentImpl.setUsedvouchers1(getUsedvouchers1());
 
 		paymentImpl.resetOriginalValues();
 
@@ -638,15 +653,17 @@ public class paymentModelImpl
 
 	@Override
 	public int compareTo(payment payment) {
-		int value = 0;
+		long primaryKey = payment.getPrimaryKey();
 
-		value = DateUtil.compareTo(getCreateDate(), payment.getCreateDate());
-
-		if (value != 0) {
-			return value;
+		if (getPrimaryKey() < primaryKey) {
+			return -1;
 		}
-
-		return 0;
+		else if (getPrimaryKey() > primaryKey) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
 	}
 
 	@Override
@@ -765,6 +782,8 @@ public class paymentModelImpl
 
 		paymentCacheModel.usedvouchers = getUsedvouchers();
 
+		paymentCacheModel.usedvouchers1 = getUsedvouchers1();
+
 		return paymentCacheModel;
 	}
 
@@ -860,6 +879,7 @@ public class paymentModelImpl
 	private long _discount;
 	private long _voucherno;
 	private long _usedvouchers;
+	private long _usedvouchers1;
 	private long _columnBitmask;
 	private payment _escapedModel;
 

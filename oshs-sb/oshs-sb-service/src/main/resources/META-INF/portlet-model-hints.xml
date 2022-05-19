@@ -70,6 +70,7 @@
 		<field name="discount" type="long" />
 		<field name="voucherno" type="long" />
 		<field name="usedvouchers" type="long" />
+		<field name="usedvouchers1" type="long" />
 	</model>
 	<model name="com.um.qa.oshs.sb.model.product">
 		<field name="uuid" type="String" />

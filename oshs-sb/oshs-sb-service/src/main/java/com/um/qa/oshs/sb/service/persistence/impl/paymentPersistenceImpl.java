@@ -2166,8 +2166,7 @@ public class paymentPersistenceImpl
 			entityCacheEnabled, finderCacheEnabled, paymentImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByUuid",
 			new String[] {String.class.getName()},
-			paymentModelImpl.UUID_COLUMN_BITMASK |
-			paymentModelImpl.CREATEDATE_COLUMN_BITMASK);
+			paymentModelImpl.UUID_COLUMN_BITMASK);
 
 		_finderPathCountByUuid = new FinderPath(
 			entityCacheEnabled, finderCacheEnabled, Long.class,
@@ -2200,8 +2199,7 @@ public class paymentPersistenceImpl
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByUuid_C",
 			new String[] {String.class.getName(), Long.class.getName()},
 			paymentModelImpl.UUID_COLUMN_BITMASK |
-			paymentModelImpl.COMPANYID_COLUMN_BITMASK |
-			paymentModelImpl.CREATEDATE_COLUMN_BITMASK);
+			paymentModelImpl.COMPANYID_COLUMN_BITMASK);
 
 		_finderPathCountByUuid_C = new FinderPath(
 			entityCacheEnabled, finderCacheEnabled, Long.class,

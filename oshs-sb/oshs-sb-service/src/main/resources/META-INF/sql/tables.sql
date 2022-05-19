@@ -69,7 +69,8 @@ create table oshs_payment (
 	price LONG,
 	discount LONG,
 	voucherno LONG,
-	usedvouchers LONG
+	usedvouchers LONG,
+	usedvouchers1 LONG
 );
 
 create table oshs_product (

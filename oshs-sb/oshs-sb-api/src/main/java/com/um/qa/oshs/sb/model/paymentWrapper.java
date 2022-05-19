@@ -61,6 +61,7 @@ public class paymentWrapper
 		attributes.put("discount", getDiscount());
 		attributes.put("voucherno", getVoucherno());
 		attributes.put("usedvouchers", getUsedvouchers());
+		attributes.put("usedvouchers1", getUsedvouchers1());
 
 		return attributes;
 	}
@@ -155,6 +156,12 @@ public class paymentWrapper
 
 		if (usedvouchers != null) {
 			setUsedvouchers(usedvouchers);
+		}
+
+		Long usedvouchers1 = (Long)attributes.get("usedvouchers1");
+
+		if (usedvouchers1 != null) {
+			setUsedvouchers1(usedvouchers1);
 		}
 	}
 
@@ -276,6 +283,16 @@ public class paymentWrapper
 	@Override
 	public long getUsedvouchers() {
 		return model.getUsedvouchers();
+	}
+
+	/**
+	 * Returns the usedvouchers1 of this payment.
+	 *
+	 * @return the usedvouchers1 of this payment
+	 */
+	@Override
+	public long getUsedvouchers1() {
+		return model.getUsedvouchers1();
 	}
 
 	/**
@@ -451,6 +468,16 @@ public class paymentWrapper
 	@Override
 	public void setUsedvouchers(long usedvouchers) {
 		model.setUsedvouchers(usedvouchers);
+	}
+
+	/**
+	 * Sets the usedvouchers1 of this payment.
+	 *
+	 * @param usedvouchers1 the usedvouchers1 of this payment
+	 */
+	@Override
+	public void setUsedvouchers1(long usedvouchers1) {
+		model.setUsedvouchers1(usedvouchers1);
 	}
 
 	/**

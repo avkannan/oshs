@@ -64,7 +64,7 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -96,6 +96,8 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		sb.append(voucherno);
 		sb.append(", usedvouchers=");
 		sb.append(usedvouchers);
+		sb.append(", usedvouchers1=");
+		sb.append(usedvouchers1);
 		sb.append("}");
 
 		return sb.toString();
@@ -145,6 +147,7 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		paymentImpl.setDiscount(discount);
 		paymentImpl.setVoucherno(voucherno);
 		paymentImpl.setUsedvouchers(usedvouchers);
+		paymentImpl.setUsedvouchers1(usedvouchers1);
 
 		paymentImpl.resetOriginalValues();
 
@@ -179,6 +182,8 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		voucherno = objectInput.readLong();
 
 		usedvouchers = objectInput.readLong();
+
+		usedvouchers1 = objectInput.readLong();
 	}
 
 	@Override
@@ -221,6 +226,8 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 		objectOutput.writeLong(voucherno);
 
 		objectOutput.writeLong(usedvouchers);
+
+		objectOutput.writeLong(usedvouchers1);
 	}
 
 	public String uuid;
@@ -238,5 +245,6 @@ public class paymentCacheModel implements CacheModel<payment>, Externalizable {
 	public long discount;
 	public long voucherno;
 	public long usedvouchers;
+	public long usedvouchers1;
 
 }

@@ -85,6 +85,7 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="discount" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="voucherno" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="usedvouchers" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="usedvouchers1" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
 	<class name="com.um.qa.oshs.sb.model.impl.productImpl" table="oshs_product">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="productID" type="long">

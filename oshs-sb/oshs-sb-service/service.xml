@@ -192,11 +192,7 @@
 		<column name="discount" type="long" />
 		<column name="voucherno" type="long" />
 		<column name="usedvouchers" type="long" />
+		<column name="usedvouchers1" type="long" />
 
-		<!-- Order -->
-
-		<order by="asc">
-			<order-column name="createDate" />
-		</order>
 	</entity>
 </service-builder>
