@@ -46,6 +46,7 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.um.qa.oshs.sb.model.product;
 import com.um.qa.oshs.sb.service.persistence.cartPersistence;
 import com.um.qa.oshs.sb.service.persistence.customerPersistence;
+import com.um.qa.oshs.sb.service.persistence.orderPersistence;
 import com.um.qa.oshs.sb.service.persistence.productPersistence;
 import com.um.qa.oshs.sb.service.persistence.staffPersistence;
 import com.um.qa.oshs.sb.service.productLocalService;
@@ -518,6 +519,9 @@ public abstract class productLocalServiceBaseImpl
 
 	@Reference
 	protected customerPersistence customerPersistence;
+
+	@Reference
+	protected orderPersistence orderPersistence;
 
 	protected productLocalService productLocalService;
 

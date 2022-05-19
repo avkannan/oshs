@@ -28,6 +28,7 @@ import com.um.qa.oshs.sb.model.cart;
 import com.um.qa.oshs.sb.service.cartService;
 import com.um.qa.oshs.sb.service.persistence.cartPersistence;
 import com.um.qa.oshs.sb.service.persistence.customerPersistence;
+import com.um.qa.oshs.sb.service.persistence.orderPersistence;
 import com.um.qa.oshs.sb.service.persistence.productPersistence;
 import com.um.qa.oshs.sb.service.persistence.staffPersistence;
 
@@ -119,6 +120,9 @@ public abstract class cartServiceBaseImpl
 
 	@Reference
 	protected customerPersistence customerPersistence;
+
+	@Reference
+	protected orderPersistence orderPersistence;
 
 	@Reference
 	protected productPersistence productPersistence;

@@ -47,6 +47,7 @@ import com.um.qa.oshs.sb.model.customer;
 import com.um.qa.oshs.sb.service.customerLocalService;
 import com.um.qa.oshs.sb.service.persistence.cartPersistence;
 import com.um.qa.oshs.sb.service.persistence.customerPersistence;
+import com.um.qa.oshs.sb.service.persistence.orderPersistence;
 import com.um.qa.oshs.sb.service.persistence.productPersistence;
 import com.um.qa.oshs.sb.service.persistence.staffPersistence;
 
@@ -520,6 +521,9 @@ public abstract class customerLocalServiceBaseImpl
 
 	@Reference
 	protected customerPersistence customerPersistence;
+
+	@Reference
+	protected orderPersistence orderPersistence;
 
 	@Reference
 	protected productPersistence productPersistence;
