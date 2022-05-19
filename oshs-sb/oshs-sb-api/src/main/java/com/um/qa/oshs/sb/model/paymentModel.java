@@ -204,21 +204,6 @@ public interface paymentModel
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
-	 * Returns the status of this payment.
-	 *
-	 * @return the status of this payment
-	 */
-	@AutoEscape
-	public String getStatus();
-
-	/**
-	 * Sets the status of this payment.
-	 *
-	 * @param status the status of this payment
-	 */
-	public void setStatus(String status);
-
-	/**
 	 * Returns the product ID of this payment.
 	 *
 	 * @return the product ID of this payment
@@ -273,5 +258,47 @@ public interface paymentModel
 	 * @param price the price of this payment
 	 */
 	public void setPrice(long price);
+
+	/**
+	 * Returns the discount of this payment.
+	 *
+	 * @return the discount of this payment
+	 */
+	public long getDiscount();
+
+	/**
+	 * Sets the discount of this payment.
+	 *
+	 * @param discount the discount of this payment
+	 */
+	public void setDiscount(long discount);
+
+	/**
+	 * Returns the voucherno of this payment.
+	 *
+	 * @return the voucherno of this payment
+	 */
+	public long getVoucherno();
+
+	/**
+	 * Sets the voucherno of this payment.
+	 *
+	 * @param voucherno the voucherno of this payment
+	 */
+	public void setVoucherno(long voucherno);
+
+	/**
+	 * Returns the usedvouchers of this payment.
+	 *
+	 * @return the usedvouchers of this payment
+	 */
+	public long getUsedvouchers();
+
+	/**
+	 * Sets the usedvouchers of this payment.
+	 *
+	 * @param usedvouchers the usedvouchers of this payment
+	 */
+	public void setUsedvouchers(long usedvouchers);
 
 }

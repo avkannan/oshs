@@ -42,11 +42,13 @@ public class paymentSoap implements Serializable {
 		soapModel.setUserName(model.getUserName());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setStatus(model.getStatus());
 		soapModel.setProductID(model.getProductID());
 		soapModel.setQuantity(model.getQuantity());
 		soapModel.setTotal(model.getTotal());
 		soapModel.setPrice(model.getPrice());
+		soapModel.setDiscount(model.getDiscount());
+		soapModel.setVoucherno(model.getVoucherno());
+		soapModel.setUsedvouchers(model.getUsedvouchers());
 
 		return soapModel;
 	}
@@ -164,14 +166,6 @@ public class paymentSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
-	public String getStatus() {
-		return _status;
-	}
-
-	public void setStatus(String status) {
-		_status = status;
-	}
-
 	public long getProductID() {
 		return _productID;
 	}
@@ -204,6 +198,30 @@ public class paymentSoap implements Serializable {
 		_price = price;
 	}
 
+	public long getDiscount() {
+		return _discount;
+	}
+
+	public void setDiscount(long discount) {
+		_discount = discount;
+	}
+
+	public long getVoucherno() {
+		return _voucherno;
+	}
+
+	public void setVoucherno(long voucherno) {
+		_voucherno = voucherno;
+	}
+
+	public long getUsedvouchers() {
+		return _usedvouchers;
+	}
+
+	public void setUsedvouchers(long usedvouchers) {
+		_usedvouchers = usedvouchers;
+	}
+
 	private String _uuid;
 	private long _orderID;
 	private long _groupId;
@@ -212,10 +230,12 @@ public class paymentSoap implements Serializable {
 	private String _userName;
 	private Date _createDate;
 	private Date _modifiedDate;
-	private String _status;
 	private long _productID;
 	private long _quantity;
 	private float _total;
 	private long _price;
+	private long _discount;
+	private long _voucherno;
+	private long _usedvouchers;
 
 }
