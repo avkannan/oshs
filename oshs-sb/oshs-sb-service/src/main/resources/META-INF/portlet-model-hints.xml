@@ -63,11 +63,13 @@
 		<field name="userName" type="String" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
-		<field name="status" type="String" />
 		<field name="productID" type="long" />
 		<field name="quantity" type="long" />
 		<field name="total" type="float" />
 		<field name="price" type="long" />
+		<field name="discount" type="long" />
+		<field name="voucherno" type="long" />
+		<field name="usedvouchers" type="long" />
 	</model>
 	<model name="com.um.qa.oshs.sb.model.product">
 		<field name="uuid" type="String" />

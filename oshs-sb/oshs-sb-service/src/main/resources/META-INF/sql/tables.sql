@@ -63,11 +63,13 @@ create table oshs_payment (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
-	status VARCHAR(75) null,
 	productID LONG,
 	quantity LONG,
 	total DOUBLE,
-	price LONG
+	price LONG,
+	discount LONG,
+	voucherno LONG,
+	usedvouchers LONG
 );
 
 create table oshs_product (

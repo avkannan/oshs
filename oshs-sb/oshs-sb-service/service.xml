@@ -185,11 +185,13 @@
 
 		<!-- Other fields -->
 
-		<column name="status" type="String" />
 		<column name="productID" type="long" />
 		<column name="quantity" type="long" />
 		<column name="total" type="float" />
 		<column name="price" type="long" />
+		<column name="discount" type="long" />
+		<column name="voucherno" type="long" />
+		<column name="usedvouchers" type="long" />
 
 		<!-- Order -->
 
