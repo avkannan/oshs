@@ -135,4 +135,35 @@
 		<column name="customerID" type="long" />
 
 	</entity>
+	<entity local-service="true" name="order"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="orderID" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="status" type="String" />
+		<column name="productID" type="long" />
+		<column name="quantity" type="long" />
+		<column name="total" type="float" />
+		<column name="customerID" type="long" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="createDate" />
+		</order>
+	</entity>
 </service-builder>

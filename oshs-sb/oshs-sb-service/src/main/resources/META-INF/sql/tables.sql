@@ -38,6 +38,22 @@ create table oshs_customer (
 	phone LONG
 );
 
+create table oshs_order (
+	uuid_ VARCHAR(75) null,
+	orderID LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	status VARCHAR(75) null,
+	productID LONG,
+	quantity LONG,
+	total DOUBLE,
+	customerID LONG
+);
+
 create table oshs_product (
 	uuid_ VARCHAR(75) null,
 	productID LONG not null primary key,

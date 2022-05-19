@@ -39,6 +39,21 @@
 		<field name="zip" type="long" />
 		<field name="phone" type="long" />
 	</model>
+	<model name="com.um.qa.oshs.sb.model.order">
+		<field name="uuid" type="String" />
+		<field name="orderID" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="String" />
+		<field name="productID" type="long" />
+		<field name="quantity" type="long" />
+		<field name="total" type="float" />
+		<field name="customerID" type="long" />
+	</model>
 	<model name="com.um.qa.oshs.sb.model.product">
 		<field name="uuid" type="String" />
 		<field name="productID" type="long" />
